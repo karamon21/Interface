@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Teclado Interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Teclado Interactivo Español</h1>
+        
+        <!-- Pantalla Interactiva -->
+        <div class="interactive-display">
+            <div class="display-content" id="displayContent">
+                Toca aquí para comenzar a escribir...
+            </div>
+        </div>
+
+        <!-- Lista de Entrada -->
+        <div class="input-section">
+            <h2>Lista de Entrada</h2>
+            <ul id="inputList" class="message-list"></ul>
+        </div>
+
+        <!-- Teclado Virtual -->
+        <div class="keyboard">
+            <div class="keyboard-row">
+                <button class="key" data-key="q">q</button>
+                <button class="key" data-key="w">w</button>
+                <button class="key" data-key="e">e</button>
+                <button class="key" data-key="r">r</button>
+                <button class="key" data-key="t">t</button>
+                <button class="key" data-key="y">y</button>
+                <button class="key" data-key="u">u</button>
+                <button class="key" data-key="i">i</button>
+                <button class="key" data-key="o">o</button>
+                <button class="key" data-key="p">p</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key" data-key="a">a</button>
+                <button class="key" data-key="s">s</button>
+                <button class="key" data-key="d">d</button>
+                <button class="key" data-key="f">f</button>
+                <button class="key" data-key="g">g</button>
+                <button class="key" data-key="h">h</button>
+                <button class="key" data-key="j">j</button>
+                <button class="key" data-key="k">k</button>
+                <button class="key" data-key="l">l</button>
+                <button class="key" data-key="ñ">ñ</button>
+            </div>
+            <div class="keyboard-row">
+                <button class="key" data-key="z">z</button>
+                <button class="key" data-key="x">x</button>
+                <button class="key" data-key="c">c</button>
+                <button class="key" data-key="v">v</button>
+                <button class="key" data-key="b">b</button>
+                <button class="key" data-key="n">n</button>
+                <button class="key" data-key="m">m</button>
+            </div>
+            <div class="keyboard-row special-chars">
+                <button class="key special" data-key="á">á</button>
+                <button class="key special" data-key="é">é</button>
+                <button class="key special" data-key="í">í</button>
+                <button class="key special" data-key="ó">ó</button>
+                <button class="key special" data-key="ú">ú</button>
+                <button class="key special" data-key="ü">ü</button>
+            </div>
+            <div class="keyboard-row controls">
+                <button class="key punctuation" data-key="¿">¿</button>
+                <button class="key punctuation" data-key="?">?</button>
+                <button class="key punctuation" data-key="¡">¡</button>
+                <button class="key punctuation" data-key="!">!</button>
+                <button class="key space" data-key=" ">Espacio</button>
+                <button class="key backspace" id="backspace">⌫</button>
+            </div>
+            <div class="keyboard-row action-buttons">
+                <button class="key clear" id="clearBtn">Limpiar</button>
+                <button class="key send" id="sendBtn">Enviar</button>
+            </div>
+        </div>
+
+        <!-- Lista de Salida -->
+        <div class="output-section">
+            <h2>Lista de Salida</h2>
+            <ul id="outputList" class="message-list"></ul>
+        </div>
+
+        <!-- Prompts Generados -->
+        <div class="prompts-section">
+            <h2>Prompts Generados</h2>
+            <div id="promptsDisplay" class="prompts-display"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
