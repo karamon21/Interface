@@ -231,7 +231,15 @@ function addPromptDisplay(input, prompt) {
     
     const promptDiv = document.createElement('div');
     promptDiv.className = 'generated-prompt';
-    promptDiv.innerHTML = prompt.split('\n').map(p => `• ${p}`).join('<br>');
+    // Use textContent for security - avoid XSS vulnerabilities
+    const promptLines = prompt.split('\n');
+    promptLines.forEach((line, index) => {
+        if (index > 0) {
+            promptDiv.appendChild(document.createElement('br'));
+        }
+        const textNode = document.createTextNode(`• ${line}`);
+        promptDiv.appendChild(textNode);
+    });
     
     promptItem.appendChild(inputDiv);
     promptItem.appendChild(promptDiv);
@@ -249,31 +257,5 @@ function animateKey(keyElement) {
     }, 100);
 }
 
-// Funcionalidad adicional: sugerencias de palabras
-function getSuggestions(text) {
-    const suggestions = [
-        'hola', 'adiós', 'gracias', 'por favor', 'buenos días',
-        'buenas tardes', 'buenas noches', '¿cómo estás?',
-        'español', 'teclado', 'interfaz', 'año', 'niño',
-        'mañana', 'señor', 'señora', 'pequeño'
-    ];
-    
-    if (!text) return [];
-    
-    return suggestions.filter(s => 
-        s.toLowerCase().startsWith(text.toLowerCase())
-    ).slice(0, 5);
-}
-
-// Exportar funciones para testing (si es necesario)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        addCharacter,
-        backspace,
-        clearText,
-        generateResponse,
-        generatePrompt,
-        hasSpecialChars,
-        getSuggestions
-    };
-}
+// Functions are available globally for browser use
+// No module exports needed for browser-only application
